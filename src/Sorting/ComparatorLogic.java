@@ -17,7 +17,8 @@ public class ComparatorLogic implements Comparator<MusicAPI> {
 			return +1;
 		}
 		
-		return 0;
+		return song1.compareTo(song2);
+		
 		
 	}
 

@@ -7,10 +7,10 @@ public class MP4 {
 
 	public static void main(String[] args) {
 
-		MusicAPI API1 = new MusicAPI("Zara Zara mehekta hai", "Sonu Nigam", 1999);
-		MusicAPI API2 = new MusicAPI("Abhi na jao chodke", "Anu Mallick", 2012);
-		MusicAPI API3 = new MusicAPI("Beete Lamhe", "KK", 2000);
-		MusicAPI API4 = new MusicAPI("Chamak Chalo", "Akon", 2017);
+		MusicAPI API1 = new MusicAPI("Zara Zara mehekta hai", "KK", 1999);
+		MusicAPI API2 = new MusicAPI("Azhi na jao chodke", "KK", 2012);
+		MusicAPI API3 = new MusicAPI("Azeete Lamhe", "KK", 2000);
+		MusicAPI API4 = new MusicAPI("Abamak Chalo", "KK", 2001);
 
 		ArrayList<MusicAPI> musicList = new ArrayList<MusicAPI>();
 
@@ -24,16 +24,13 @@ public class MP4 {
 			System.out.println(music);
 		}
 		
-		ComparatorLogic logic=new ComparatorLogic();
+		//ComparatorLogic logic=new ComparatorLogic();
 
-		Collections.sort(musicList,logic);
+		Collections.sort(musicList,MusicAPI.compare);
 
 		System.out.println("After Sorting....");
 
-		for (MusicAPI music : musicList) {
-
-			System.out.println(music);
-		}
+		musicList.forEach(System.out::println);
 
 	}
 

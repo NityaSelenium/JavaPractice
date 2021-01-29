@@ -1,29 +1,44 @@
 package Sorting;
 
-public class MusicAPI implements Comparable<MusicAPI>{
-	
+import java.util.Comparator;
+
+public class MusicAPI {
+
 	@Override
 	public String toString() {
 		return "MusicAPI [songName=" + songName + ", artistName=" + artistName + ", year=" + year + "]";
 	}
-	
-	@Override
+
 	public int compareTo(MusicAPI AnotherMusic) {
-		
+
 		return this.getSongName().compareTo(AnotherMusic.getSongName());
-		
-		
+
 	}
+
+	public static Comparator<MusicAPI> compare = new Comparator<MusicAPI>() {
+
+		@Override
+		public int compare(MusicAPI song, MusicAPI song1) {
+
+			if (song.getArtistName().equalsIgnoreCase(song1.getArtistName())) {
+
+				return song.getYear().compareTo(song1.getYear());
+			} else {
+
+				return song.getArtistName().compareTo(song1.getArtistName());
+			}
+		}
+	};
 
 	private String songName;
 	private String artistName;
 	private Integer year;
-	
-	public MusicAPI(String songName,String artistName,Integer year){
-		
-		this.songName=songName;
-		this.artistName=artistName;
-		this.year=year;
+
+	public MusicAPI(String songName, String artistName, Integer year) {
+
+		this.songName = songName;
+		this.artistName = artistName;
+		this.year = year;
 	}
 
 	public String getSongName() {
@@ -49,9 +64,5 @@ public class MusicAPI implements Comparable<MusicAPI>{
 	public void setYear(Integer year) {
 		this.year = year;
 	}
-
-	
-	
-	
 
 }
